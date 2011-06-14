@@ -11,7 +11,8 @@ urlpatterns = patterns('',
     url(r'^comments/',          include('django.contrib.comments.urls')),
     url(r'^storage/',           include('Hashnote.storage.urls')),
     url(r'^',                   include('Hashnote.blogs.urls')),
-    url(r'^threadlocalscheck/$', 'Hashnote.threadlocalscheck.views.check')
+    url(r'^threadlocalscheck/$', 'Hashnote.threadlocalscheck.views.check'),
+    url(r'^feeds/',            include('Hashnote.feeds.urls')),
 )
 
 from django.conf import settings
