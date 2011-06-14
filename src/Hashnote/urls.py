@@ -24,4 +24,5 @@ if settings.DEBUG:
         url(r'^css/(?P<path>.*)$',          'serve',    kwargs={'document_root': document_root('css')}),
         url(r'^javascript/(?P<path>.*)$',   'serve',    kwargs={'document_root': document_root('javascript')}),
         url(r'^image/(?P<path>.*)$',        'serve',    kwargs={'document_root': document_root('image')}),
+        url(r'^media/(?P<path>.*)$',        'serve',    kwargs={'document_root': document_root('media')}),
     )
