@@ -16,13 +16,12 @@ urlpatterns = patterns('',
 )
 
 from django.conf import settings
-if settings.DEBUG:
-    import os.path
-    STATICS_PATH = os.path.join(os.path.dirname(__file__), '../../statics')
-    document_root = lambda x: os.path.join(STATICS_PATH, x)
-    urlpatterns += patterns('django.views.static',
-        url(r'^css/(?P<path>.*)$',          'serve',    kwargs={'document_root': document_root('css')}),
-        url(r'^javascript/(?P<path>.*)$',   'serve',    kwargs={'document_root': document_root('javascript')}),
-        url(r'^image/(?P<path>.*)$',        'serve',    kwargs={'document_root': document_root('image')}),
-        url(r'^media/(?P<path>.*)$',        'serve',    kwargs={'document_root': document_root('media')}),
-    )
+import os.path
+STATICS_PATH = os.path.join(os.path.dirname(__file__), '../../statics')
+document_root = lambda x: os.path.join(STATICS_PATH, x)
+urlpatterns += patterns('django.views.static',
+    url(r'^css/(?P<path>.*)$',          'serve',    kwargs={'document_root': document_root('css')}),
+    url(r'^javascript/(?P<path>.*)$',   'serve',    kwargs={'document_root': document_root('javascript')}),
+    url(r'^image/(?P<path>.*)$',        'serve',    kwargs={'document_root': document_root('image')}),
+    url(r'^media/(?P<path>.*)$',        'serve',    kwargs={'document_root': document_root('media')}),
+)
